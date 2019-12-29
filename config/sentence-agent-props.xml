@@ -1,0 +1,68 @@
+<?xml version="1.0" ?>
+<!-- 
+	Anticipatory Story Reader core properties
+	tqos-asr-documizer extends tqos-asr-core so these properties
+	serve far more than this agent
+	Most of the properties here are just for booting ASRCore
+	The primary properties used by this agent are:
+		JSONFileBase
+		BaseDataPath
+-->
+
+<properties>
+	<!-- Use "T" for testing, anything else for production
+		This allows the Kafka consumer to rewind before testing -->
+	<parameter name="ConsumerRewind" value="N" />  <!--  ??? CHANGEME -->
+
+
+	<!-- ParagraphDocumentServer -->
+	<parameter name="PDServerURL" value="localhost" />  <!--  ??? CHANGEME -->
+	<parameter name="PDServerPort" value="6777" /> <!-- coordinate with server -->
+
+	<parameter name="VocabServerURl" value="localhost" /> <!--  coordinate with VocabServer -->
+	<parameter name="VocabServerPort" value="7989" /> <!-- coordinate with VocabServer -->
+
+	<!-- this server commmunicates with the Statistics Server -->
+	<parameter name="StatServerURl" value="localhost" /> <!--  coordinate with StatServer -->
+	<parameter name="StatServerPort" value="6900" /> <!-- coordinate with StatServer -->
+	<parameter name="StatServerClientId" value = "changeme" /> <!-- coordinate with StatServer -->
+
+
+	<parameter name="SpotlightURL" value="http://192.168.0.12:2222/rest" />
+
+	<parameter name="KAFKA_SERVER_URL" value="192.168.0.3" />
+
+	<parameter name="KAFKA_SERVER_PORT" value="9092" />
+	
+
+	<list name="NounPhrasePatterns">
+		<parameter name="np0" value="ADJ NOUN ADP NOUN NOUN" /> 
+		<parameter name="np0.1" value="ADJ NOUN ADP ADJ NOUN" />
+		<parameter name="np1" value="ADJ NOUN ADP NOUN" />
+		<parameter name="np1.1" value="ADJ NOUN" /> 
+		<parameter name="np1.2" value="ADJ NOUN NOUN" /> 
+		<parameter name="np1.3" value="ADJ ADJ NOUN" /> 
+		<parameter name="np2" value="NOUN ADP NOUN" /> 
+		<parameter name="np3" value="NOUN ADP ADJ NOUN NOUN" /> 
+		<parameter name="np4" value="NOUN ADP ADJ NOUN" />
+		<!-- a lowercase POS means it starts a pattern but is not collected -->
+		<parameter name="np5" value="det VERB NOUN" />
+		<parameter name="np6" value="verb VERB NOUN" />punct PRON ADP NOUN 
+		<parameter name="np7" value="NOUN NOUN" />
+		<parameter name="np8" value="punct PRON ADP NOUN" />
+	</list>
+	<list name="VerbPhrasePatterns">
+		<parameter name="vp0" value="VERB ADJ ADP" /> 
+		<parameter name="vp1" value="VERB VERB ADP" />
+		<parameter name="vp2" value="VERB VERB PART" />
+		<parameter name="vp3" value="VERB ADV VERB" />
+		<parameter name="vp4" value="VERB PART" />
+	</list>
+
+	<list name="ConjunctivePhrasePatterns">
+		<parameter name="cp0" value="ADJ CONJ ADJ NOUN" /> 
+	</list>
+
+	
+</properties>
+
